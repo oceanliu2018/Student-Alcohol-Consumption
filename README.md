@@ -18,12 +18,19 @@ The following heatmap was produced to visualize the relationship between the var
 
 We see that PCA is not very effective as a small number of components do not explain the majority of the variance. This may be due to the largely independent features
 ## Classifier Comparison
+Mean scores were computed using 10-Fold Cross Validation
+Random Forest before PCA had parameters trees = 9 and depth = 2
+Random Forest after PCA had parameters trees = 8 and depth =3
 ![classifiercomparison](https://user-images.githubusercontent.com/36087346/36120217-72fc3bc8-1010-11e8-8d61-aba0aafe90fa.png)
 ![classifiervisual](https://user-images.githubusercontent.com/36087346/36120221-760851f8-1010-11e8-8321-35a9d346f95f.png)
+## Results
+We used both linear and nonlinear classifiers on the data, and our tests yielded scores around 60-65%.
 
-## Summary
-We used both linear and nonlinear classifiers on the data, and our tests yielded scores around 60-65%. These unimpressive scores reflect the mediocre reconstruction explained variance of 25%.
 While none of the features are dominant, the three that had the most value in predicting alcohol consumption were “goout”, “sex”, and “G1”.
-The data clouds for “drinkers” and “non-drinkers” heavily overlap, explaining why the decision boundary for kNN is terrible. Linear SVC seems to be the most successful classifier because it has the least model variance and so is least affected by the noisy data. Improvements that could be made include changing the 50% threshold for heavy drinker
+## Summary
+These unimpressive scores reflect the mediocre reconstruction explained variance of 25%.
+While none of the features are dominant, the three that had the most value in predicting alcohol consumption were “goout”, “sex”, and “G1”.
+The data clouds for “drinkers” and “non-drinkers” heavily overlap, explaining why the decision boundary for kNN is terrible. Linear SVC seems to be the most successful classifier because it has the least model variance and so is least affected by the noisy data. 
+Improvements that could be made include changing the 50% threshold for heavy drinker, as well as using data with more quatifiable benchmarks for drinking such as number of drinks. Another consideration is isolating the school, home, and personal life features and see how each feature set works independetly.
 
 
