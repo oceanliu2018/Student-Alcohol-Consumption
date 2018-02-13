@@ -45,6 +45,6 @@ While none of the features are dominant, the three that had the most value in pr
 
 The data clouds for “drinkers” and “non-drinkers” heavily overlap, explaining why the decision boundary for kNN is poor. Linear SVM is the most successful classifier likely because it has the least model variance and is least affected by the noisy data. 
 
-Improvements that could be made include changing the median threshold for heavy drinker. Better results could be gotten by collecting alcohol consumption data with quantifiable benchmarks for drinking such as number of drinks instead of self reported levels. Another consideration is separating features into subsets such school, home, or personal life features and focus on collecting data and performing analyses on those subsets
+Improvements that could be made include changing the median threshold for heavy drinker. Better results could be gotten by collecting alcohol consumption data with quantifiable benchmarks for drinking such as number of drinks instead of self reported levels. Another consideration is separating features into subsets such school, home, or personal life features and focus on collecting data and performing analyses on those subsets.
 
 
