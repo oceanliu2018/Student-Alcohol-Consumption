@@ -2,35 +2,49 @@
 Project done with George Li, Derek Modzelewski, Zenny Chu
 
 ## Introduction
-This project was done to see how effectively we could predict alcohol consumption amongst students based on various demographic features as well and their success and investment in their studies. The dataset was downloaded from : https://www.kaggle.com/uciml/student-alcohol-consumption
+Student alcohol consumption clearly impacts young people’s health and education. Is it possible to identify those students that tend to drink more? This project tests several classification models to find an effective model to predict student drinking levels.
 
-The data was taken from a survey of Portugese high school students who reported their alcohol consumption on a 1-5 scale with 5 with a greater score indicating a heavier drinker. All binary categorical variables were converted to numerical representations whereas non binary 
+The dataset used was downloaded from : https://www.kaggle.com/uciml/student-alcohol-consumption
 
-To perform classfiication, we grouped the students into two classes, drinking more that the median drinker and drinking less than the median drinker.
+It contains responses from a survey of 396 Portuguese math students. It includes features that describe their personal (health, sex) and family information (sex, parental education, family size), education (trimester grades, study time, absences), and other factors (free time, going out with friends)
+## Data Cleansing
+The data was taken from a survey of Portuguese high school students who reported their alcohol consumption on a 1-5 scale (5 being the highest drinking level).
 
-## Vizualization
-The following heatmap was produced to visualize the relationship between the various features. Most of the features are uncorellated. Grades however were corrletted, indicating consist student performances. Other correlations were parental education as well as weekend and weekday drinking levels
+All binary categorical variables were converted to numerical representations whereas non binary categorical variables were not used.
+
+Weekend and weekday drinking levels were averaged to create a single drinking variable 'alc'. To perform classification, we grouped the students into a binary class 'drinker', 1 being having a drinking level higher than the median, 0 representing a drinking level below the median
+
+## Visualization
+The following heatmap visualizes the relationship between the various features. There are very few strong correlation. The three grades (g1,g2,g3) however were correleted, indicating consistent academic performances. Other correlations were between the mother and father's education (medu,fedu) as well as weekend and weekday drinking levels (Dalc,Walc)
 
 ![heatmap](https://user-images.githubusercontent.com/36087346/36117937-60725dfe-1009-11e8-81c0-6230fce24bfe.png)
 
 ## PCA
+We found that PCA is not very effective as a small number of components do not explain the majority of the variance. This may be due to the largely independent features
+
 ![pcavisual](https://user-images.githubusercontent.com/36087346/36120447-39f178a6-1011-11e8-9a05-2c5de8c15753.png)
 
-We see that PCA is not very effective as a small number of components do not explain the majority of the variance. This may be due to the largely independent features
-## Classifier Comparison
-Mean scores were computed using 10-Fold Cross Validation
-Random Forest before PCA had parameters trees = 9 and depth = 2
-Random Forest after PCA had parameters trees = 8 and depth =3
-![classifiercomparison](https://user-images.githubusercontent.com/36087346/36120217-72fc3bc8-1010-11e8-8d61-aba0aafe90fa.png)
-![classifiervisual](https://user-images.githubusercontent.com/36087346/36120221-760851f8-1010-11e8-8321-35a9d346f95f.png)
-## Results
-We used both linear and nonlinear classifiers on the data, and our tests yielded scores around 60-65%.
 
-While none of the features are dominant, the three that had the most value in predicting alcohol consumption were “goout”, “sex”, and “G1”.
-## Summary
-These unimpressive scores reflect the mediocre reconstruction explained variance of 25%.
-While none of the features are dominant, the three that had the most value in predicting alcohol consumption were “goout”, “sex”, and “G1”.
-The data clouds for “drinkers” and “non-drinkers” heavily overlap, explaining why the decision boundary for kNN is terrible. Linear SVC seems to be the most successful classifier because it has the least model variance and so is least affected by the noisy data. 
-Improvements that could be made include changing the 50% threshold for heavy drinker, as well as using data with more quatifiable benchmarks for drinking such as number of drinks. Another consideration is isolating the school, home, and personal life features and see how each feature set works independetly.
+## Classifier Comparison
+Accuracy was computed using the means of the scores using 10-Fold Cross Validation
+
+For the random forest classifier, we varied the number of trees and their depth, choosing the ones with the strongest performance.
+
+Random Forest before PCA had parameters trees = 9 and depth = 2
+
+Random Forest after PCA had parameters trees = 8 and depth =3
+
+![classifiercomparison](https://user-images.githubusercontent.com/36087346/36120217-72fc3bc8-1010-11e8-8d61-aba0aafe90fa.png)
+Below is a visualization of the classification boundaries.
+![classifiervisual](https://user-images.githubusercontent.com/36087346/36120221-760851f8-1010-11e8-8321-35a9d346f95f.png)
+## Conclusion
+We used both linear and nonlinear classifiers to analyze the data, and our tests yielded score validation scores around 60-65%.
+
+While none of the features are dominant, the three that had the most value in predicting alcohol consumption were going out with friends (goout), sex, and first period grades (G1).
+## Discussion
+
+The data clouds for “drinkers” and “non-drinkers” heavily overlap, explaining why the decision boundary for kNN is poor. Linear SVM is the most successful classifier likely because it has the least model variance and is least affected by the noisy data. 
+
+Improvements that could be made include changing the median threshold for heavy drinker. Better results could be gotten by collecting alcohol consumption data with quantifiable benchmarks for drinking such as number of drinks instead of self reported levels. Another consideration is separating features into subsets such school, home, or personal life features and focus on collecting data and performing analyses on those subsets
 
 
