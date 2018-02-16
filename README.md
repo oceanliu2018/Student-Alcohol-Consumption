@@ -31,7 +31,9 @@ The classifiers were tested using 10-Fold Cross Validation. The score represents
 For the random forest classifier, we varied the number of trees and their depth, choosing the ones with the strongest performance.
 
 ![classifiercomparison](https://user-images.githubusercontent.com/36087346/36120217-72fc3bc8-1010-11e8-8d61-aba0aafe90fa.png)
+
 Below is a visualization of the classification boundaries.
+
 ![classifiervisual](https://user-images.githubusercontent.com/36087346/36120221-760851f8-1010-11e8-8321-35a9d346f95f.png)
 ## Conclusion
 We used both linear and nonlinear classifiers to analyze the data, and our tests yielded score validation scores around 60-65%.
