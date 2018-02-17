@@ -38,7 +38,7 @@ Below is a visualization of the classification boundaries.
 ## Conclusion
 We used both linear and nonlinear classifiers to analyze the data which yielded validation scores around 60-65%.
 
-hile none of the features are dominant, we found that going out with friends (goout), sex, and first period grades (G1) had the most value in predicting alcohol consumption.
+While none of the features are dominant, we found that going out with friends (goout), sex, and first period grades (G1) had the most value in predicting alcohol consumption.
 ## Discussion
 
 The data clouds for “drinkers” and “non-drinkers” heavily overlap, explaining why the decision boundary for kNN is poor. Linear SVM is the most successful classifier likely because it has the least model variance and is least affected by the noisy data. 
